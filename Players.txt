@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+public class CandidateCode {
+   public static void main(String args[] ) throws Exception {
+      Scanner input = new Scanner(System.in);
+		int noOfTestcases = input.nextInt();
+		for (int k = 0; k < noOfTestcases; k++) {
+			int number = input.nextInt();
+			int[] players_energy = new int[number];
+			int[] villan_strength = new int[number];
+			for (int i = 0; i < villan_strength.length; i++) {
+				villan_strength[i] = input.nextInt();
+			}
+			for (int i = 0; i < players_energy.length; i++) {
+				players_energy[i] = input.nextInt();
+         }
+			Arrays.sort(players_energy);
+			Arrays.sort(villan_strength);
+			boolean result = true;
+			for (int i = 0; i < number; i++) {
+				if (players_energy[i] > villan_strength[i]) {
+					result = true;
+				} else {
+					result = false;
+				}
+			}
+			if (result) {
+				System.out.println("WIN");
+			} else {
+				System.out.println("LOSE");
+			}
+		}
+	}
+}
